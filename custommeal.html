@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Meal</title>
+  <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="services.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      background: #fff;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo1.jpeg" alt="User Logo" class="user-logo"> <!-- Logo Image -->
+            <h1 class="header-title">Good Health and Well Being</h1> <!-- Applied class 'header-title' to h1 -->
+        </div>
+         
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul>
+                <li><a href="homepage.php">Home</a></li>
+                <li class="dropdown">
+                    <a href="services.html">Services</a>
+                    <ul class="dropdown-content">
+                        <li><a href="routine.html">Routine</a></li>
+                        <li><a href="sleep.html">Sleep</a></li>
+                        <li><a href="meal.html">Meal Plan</a></li>
+                        <li><a href="stress.html">Stress & Anxiety Relief</a></li>
+                        <li><a href="Yoga.html">Yoga and Exercise</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+    <h2>Get your custom meal-plan</h2>
+    <form action="#" method="POST">
+
+      <!-- Personal Info -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="0" required />
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">-- Select --</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+        <option>Prefer not to say</option>
+      </select>
+
+      <!-- Physical Health -->
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" required />
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" required />
+
+      <label>Do you have any chronic diseases (e.g., diabetes, hypertension)?</label>
+      <textarea name="chronic_diseases" rows="3"></textarea>
+
+      <label>Are you Vegetarian or not?</label>
+      <select name="sleep">
+        <option value="">-- Select --</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <!-- Lifestyle -->
+      <label>How often do you exercise per week?</label>
+      <select name="exercise">
+        <option value="">-- Select --</option>
+        <option>Never</option>
+        <option>1-2 times</option>
+        <option>3-5 times</option>
+        <option>Daily</option>
+      </select>
+
+      <label>Do you smoke?</label>
+      <select name="smoke">
+        <option value="">-- Select --</option>
+        <option>No</option>
+        <option>Occasionally</option>
+        <option>Regularly</option>
+      </select>
+
+      <label>Do you consume alcohol?</label>
+      <select name="alcohol">
+        <option value="">-- Select --</option>
+        <option>No</option>
+        <option>Occasionally</option>
+        <option>Regularly</option>
+      </select>
+
+      <!-- Mental Health -->
+      <label>Have you experienced stress or anxiety recently?</label>
+      <textarea name="mental_health" rows="3"></textarea>
+
+      <label>Do you sleep at least 6-8 hours a night?</label>
+      <select name="sleep">
+        <option value="">-- Select --</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <!-- Medical History -->
+      <label>Are you currently taking any medications?</label>
+      <textarea name="medications" rows="3"></textarea>
+
+      <label>Any past surgeries or hospitalizations?</label>
+      <textarea name="surgeries" rows="3"></textarea>
+
+      <label>Do you have any allergies?</label>
+      <textarea name="allergies" rows="3"></textarea>
+
+      <!-- Submit -->
+      <a href="custom-meal-plan.html" style="padding: 10px 20px; background: #0056b3; color: white; text-decoration: none; border-radius: 5px;text-align: center;">
+        Go to Custom Meal
+      </a>
+      
+
+      
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Good Health and Well Being. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('nav ul');
+        const menuIcon = document.querySelector('.menu-icon');
+        nav.classList.toggle('show-menu');
+        menuIcon.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>

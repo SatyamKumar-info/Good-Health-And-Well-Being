@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracker</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Updated stylesheet link -->
+    
+    <link rel="stylesheet" href="services.css">
+    
+    <style>
+        /* Reset and Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #eef5ff;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056b3;
+            padding: 15px 5%;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+        }
+        .header-title {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #dfefff;
+        }
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        .bar {
+            width: 30px;
+            height: 4px;
+            background-color: rgb(255, 255, 255);
+            margin: 5px;
+        }
+
+        /* Hero Section */
+        #about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('home.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 30px;
+        }
+        #about h1{
+            font-size: 3em;
+            padding-top: 25px;
+        }
+
+        #about p{
+            padding: 25px;
+        }
+        .special-button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .special-button:hover {
+            background-color: #ffaa00;
+            color: white;
+        }
+
+        .chatAI {
+            padding: 12px 25px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position:fixed;
+            bottom: 0;
+            right: 0;
+            transform: translateY(-50px);
+        }
+
+        /* Blog Section */
+        #blog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 50px;
+            background-color: #fff;
+        }
+        #blog article {
+            background: #f8fbff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #3d82cd;
+            color: white;
+            padding: 18px;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #0056b3;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 220px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            nav ul.show-menu {
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo1.jpeg" alt="User Logo">
+        </div>
+        <h1 class="header-title">Good Health and Well Being</h1>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div> 
+            </div>
+            <ul>
+                <li><a href="index2.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="">Services</a>
+                    <ul class="dropdown-content">
+                        <li><a href="services.html">Free</a></li>
+                        <li><a href="pre_service.html">Paid</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h1>Welcome to Your Health Tracker</h1>
+        <p>Track your wellness and stay on top of your health</p>
+        <a href="for.html" class="special-button">Tips</a>
+        <a class="special-button" onclick="logout()">LogOut</a>
+        <a href="chatbot.html"><img src="chatbot1-removebg-preview.png" alt="Ask Me" class="chatAI"></a>
+    </section>
+
+    <section id="blog">
+        <article>
+            <h3>Healthy Meal Planning</h3>
+            <a href=""><img src="high-fiber-foods.png" alt="Healthy Meal Planning" class="blog-img"></a>
+            <p>Eating a balanced diet is essential for all age groups.</p>
+        </article>
+        <article>
+            <h3>Healthy Aging & Food Groups</h3>
+            <a href=""><img src="mealplan.jpeg" alt="Healthy Eating" class="blog-img"></a>
+            <p>A guide to essential food groups for aging well.</p>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Good Health and Well Being. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            const menuIcon = document.querySelector('.menu-icon');
+            nav.classList.toggle('show-menu');
+            menuIcon.classList.toggle('active');
+        }
+
+        function logout() {
+            var result = window.confirm("Do you want to LogOut.");
+            if (result) {
+                setTimeout(() => {
+                window.location.href = "index.html"; // Replace with home page path if needed
+            }, 500); // 3 seconds
+            } else {
+                
+            }
+
+        }
+    </script>
+</body>
+</html>

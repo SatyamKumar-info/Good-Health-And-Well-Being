@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Health Trainer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f9ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    .consultation {
+      background: #e9f7ef;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .consultation h3 {
+      color: #155724;
+    }
+
+    .consultation p {
+      margin: 10px 0;
+    }
+
+    .chat-container {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.chat-box {
+  height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  max-width: 80%;
+}
+
+.message.user {
+  background-color: #d1ecf1;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.message.trainer {
+  background-color: #c3e6cb;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  width: 100px; /* 👈 sets a smaller fixed width */
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Live Health Trainer</h1>
+  <h2>Register for Personalized Health Guidance</h2>
+
+  <form id="registrationForm">
+    <div>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+    </div>
+    <div>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+    </div>
+    <div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required>
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <input type="number" id="age" required>
+    </div>
+    <div>
+      <label for="gender">Gender</label>
+      <select id="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div>
+      <label for="goal">Fitness Goal</label>
+      <select id="goal" required>
+        <option value="">Select</option>
+        <option>Weight Loss</option>
+        <option>Muscle Gain</option>
+        <option>General Fitness</option>
+        <option>Endurance</option>
+      </select>
+    </div>
+    <div class="full-width">
+      <label for="notes">Additional Info / Health Concerns</label>
+      <textarea id="notes" rows="4" placeholder="Describe any health issues, preferences or lifestyle"></textarea>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+
+  <div class="consultation">
+    <h3>Trainer's Health Tips</h3>
+    <p><strong>Tip 1:</strong> Stay hydrated. Drink at least 2-3 liters of water daily.</p>
+    <p><strong>Tip 2:</strong> Include both cardio and strength training in your workout.</p>
+    <p><strong>Tip 3:</strong> Avoid processed foods. Stick to whole grains and fresh fruits.</p>
+    <p><strong>Tip 4:</strong> Rest and recovery are as important as workouts. Sleep well!</p>
+  </div>
+</div>
+
+<div class="chat-container">
+    <h3>💬 Live Chat with Trainer</h3>
+    <div id="chatBox" class="chat-box">
+      <div class="message trainer">Hi! I'm your virtual health trainer. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userMessage" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  
+
+<script>
+    alert("Buy Premium Version to get the full access to this feature.")
+  document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Buy Premium Version for registration.");
+    this.reset();
+  });
+
+  function sendMessage() {
+  const input = document.getElementById("userMessage");
+  const chatBox = document.getElementById("chatBox");
+
+  const userText = input.value.trim();
+  if (userText === "") return;
+
+  // Append user's message
+  const userMessage = document.createElement("div");
+  userMessage.className = "message user";
+  userMessage.textContent = userText;
+  chatBox.appendChild(userMessage);
+
+  input.value = "";
+
+  // Trainer reply after 1 second
+  setTimeout(() => {
+    const trainerReply = document.createElement("div");
+    trainerReply.className = "message trainer";
+    trainerReply.textContent = getTrainerReply(userText);
+    chatBox.appendChild(trainerReply);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 1000);
+}
+
+function getTrainerReply(message) {
+  const msg = message.toLowerCase();
+  if (msg.includes("diet")) return "I recommend a high-protein, low-carb diet. Want a custom plan?";
+  if (msg.includes("exercise")) return "Try mixing strength training with 30 mins of cardio daily.";
+  if (msg.includes("weight loss")) return "Focus on a calorie deficit and regular workouts.";
+  if (msg.includes("hello") || msg.includes("hi")) return "Hello! Ask me anything about your fitness.";
+  return "Thanks for your message! I’ll get back with personalized tips.";
+}
+
+</script>
+
+</body>
+</html>

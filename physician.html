@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Physician Consultation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f7ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    .availability-status {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      font-weight: bold;
+      margin-left: 10px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      color: white;
+      background-color: gray;
+      transition: background 0.3s ease;
+    }
+    .status-online {
+      background-color: #28a745;
+    }
+    .status-offline {
+      background-color: #dc3545;
+    }
+
+    .chat-container {
+      background: #eef7fb;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .chat-box {
+      height: 200px;
+      overflow-y: auto;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      max-width: 80%;
+    }
+
+    .message.user {
+      background-color: #d1ecf1;
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .message.physician {
+      background-color: #c3e6cb;
+      text-align: left;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .chat-input button {
+      width: 90px;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Physician Consultation</h1>
+  <h2>Book an Appointment with Our Doctor</h2>
+
+  <!-- Appointment Form -->
+  <form id="physicianForm">
+    <div>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+    </div>
+    <div>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+    </div>
+    <div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required>
+    </div>
+    <div>
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" required>
+    </div>
+    <div>
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" required>
+    </div>
+    <div>
+      <label for="session">Session Type</label>
+      <select id="session" required>
+        <option value="">Select</option>
+        <option>Online</option>
+        <option>In-Person</option>
+      </select>
+    </div>
+    <div>
+      <label for="location">Clinic Location</label>
+      <input type="text" id="location" value="HealthCare Clinic, Block A, New Delhi" readonly>
+    </div>
+    <div class="full-width">
+      <label for="issue">Describe Your Health Concern</label>
+      <textarea id="issue" rows="4" placeholder="Fever, cold, fatigue, body pain, etc."></textarea>
+    </div>
+    <button type="submit">Book Appointment</button>
+  </form>
+
+  <!-- Chat Box -->
+  <div class="chat-container">
+    <h3>💬 Chat with Physician</h3>
+    <div id="chatBox" class="chat-box">
+      <div class="message physician">Hi! I’m Dr. Sharma. Tell me what symptoms you're experiencing.</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userMessage" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- JS Logic -->
+<script>
+    alert("Buy Premium Version to get the full access to this feature.");
+  // Form submission
+  document.getElementById("physicianForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Buy Premium Version for registration.");
+    this.reset();
+  });
+
+  // Chat logic
+  function sendMessage() {
+    const input = document.getElementById("userMessage");
+    const chatBox = document.getElementById("chatBox");
+    const userText = input.value.trim();
+    if (userText === "") return;
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = userText;
+    chatBox.appendChild(userMsg);
+
+    input.value = "";
+
+    setTimeout(() => {
+      const reply = document.createElement("div");
+      reply.className = "message physician";
+      reply.textContent = getPhysicianReply(userText);
+      chatBox.appendChild(reply);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1000);
+  }
+
+  function getPhysicianReply(message) {
+    const msg = message.toLowerCase();
+    if (msg.includes("fever")) return "Drink fluids, rest well, and check your temperature regularly.";
+    if (msg.includes("cold")) return "Stay hydrated and use steam inhalation. Avoid cold food.";
+    if (msg.includes("headache")) return "Try resting and avoid screen time. If persistent, book a visit.";
+    return "Thanks for sharing. I’ll analyze and guide you accordingly.";
+  }
+
+  // Simulate Physician Availability
+  const statusEl = document.getElementById("physicianStatus");
+  function updatePhysicianStatus(isOnline) {
+    if (isOnline) {
+      statusEl.textContent = "Online";
+      statusEl.classList.add("status-online");
+      statusEl.classList.remove("status-offline");
+    } else {
+      statusEl.textContent = "Offline";
+      statusEl.classList.add("status-offline");
+      statusEl.classList.remove("status-online");
+    }
+  }
+
+  setInterval(() => {
+    const isOnline = Math.random() > 0.2;
+    updatePhysicianStatus(isOnline);
+  }, 10000);
+
+  window.onload = () => updatePhysicianStatus(true);
+</script>
+
+</body>
+</html>
